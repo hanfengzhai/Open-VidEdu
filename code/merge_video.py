@@ -2,6 +2,7 @@
 Merge a series of videos in order into a single output video.
 Usage: python merge_video.py -o output.mp4 video1.mp4 video2.mp4 video3.mp4
 """
+from __future__ import annotations
 
 import argparse
 import subprocess
@@ -33,13 +34,16 @@ def merge_videos(input_paths: list[str], output_path: str) -> None:
         list_path = f.name
 
     try:
+        # Re-encode so all segments share same format/timebase and boundaries don't glitch audio.
         cmd = [
             "ffmpeg",
             "-y",
             "-f", "concat",
             "-safe", "0",
             "-i", list_path,
-            "-c", "copy",
+            "-c:v", "libx264",
+            "-c:a", "aac",
+            "-movflags", "+faststart",
             output_path,
         ]
         result = subprocess.run(cmd, capture_output=True, text=True)

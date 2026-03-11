@@ -1,0 +1,12 @@
+Today, we'll continue our discussion on plasticity.
+In particular, we'll talk about yield surface.
+A little bit short recap of the lecture.
+What is a plastic deformation?
+If we draw a square strain curve, For linear elastic material.
+The stress is a linear response corresponding to a strain, and once you reach a yield point.
+the material started to yield.
+Again, I have to emphasize, if you unload the material, and if it goes back to origin (of the coordinate), it means there are no plastic deformation, so not all nonlinear stress strength curve indicators are plastic deformation.
+But today, let's assume we're in the general context of plastic deformation -- in which you reach a yield point.
+And if you unload material, and you generate a plastic permanent deformation, and then you reload it.
+Which can be seen in the lecture note.
+So today we're mostly talking about the yield surface when the materials start to yield.

@@ -1,0 +1,98 @@
+So, what's by definition, what is Tresca yield condition?
+By construction, by definition, Tresca is defined as The absolute difference between, any two principal debitoric stress components equals to a constant, which we define as 2KT, which T signifies stress code.
+So, S1 minus S2.
+value equals 2KT.
+S2 minus… And 3… plus 2KT… S.
+3 minus S1 equals… 2KT.
+And, well, I already, you know, erased that, but if you still recall, I defined a thing called S1 tilde.
+first to illustrate what does the ESRS look like on the pipeline, and then we use S1 tilde to explain it looks like a circle.
+So we're going to still use S1 tilde here in the trust.
+So we can write this whole condition, you know, more right.
+In terms of… S1 tilde and S2.
+Again, my favorite term, we're gonna skip the algebra, let's do some algebra.
+The absolute value square root of 3 over 2S1 tilde minus 2S2 equals 2KT.
+Now, because it's kind of like doing a geometric projection or operation, such that you have 3 axes, and then now you fine-tune, and now you only operate on two axes.
+two degrees of freedom, using two variables.
+Now you only have S1 tilde.
+and S2.
+And this is the same, square root of 3 over 2.
+This one tilde, plus… 3 over 2 as 2, 2.
+Absolute value equals… 2KT.
+And the third formula equation will be 2 over 3S1 to the… You close.
+You're kidding.
+So this is the mathematical definition of the Tresca yield criteria.
+And this form, this whole mathematical form, you know, if you look at it in terms of S12 and S2, it can form where it has a shape of hexagon with a side lens of 4 over 3KT.
+You know, so this form… In terms of S1, 2 to S2.
+You know, as a… Accident.
+of the side lens.
+Oops.
+4 over 3KT equals… 2 over 3… yield stress.
+And when I just say hexagon, it probably, you know, for some of you, it might click, but for some of you, you might see one or what does it look like, so I'm gonna sketch it.
+Schematic.
+So this is S2, right?
+Recall?
+S1 is perpendicular to X2.
+So, S1 tilde.
+And, I'm asked to still draw S1 and S3.
+Oops.
+Jeez.
+So, what does the Tresca yield surface look like?
+It looks like… This, and then… Oh, my kidding.
+Projected, elongated in the opposite direction.
+Looks like this… And then… It's S2… Looks like this.
+Because… Those are a little bit weird-shaped hexagon, but, you know… I'll take it.
+Okay, it looks like this.
+And… I don't know.
+The intersection of the two axes would be 2 over square root 3KT.
+Right.
+And this will be the Tresca EO surface look like according to this definition of mathematical construction.
+And this side lens, is 4 over 3QT.
+Three…
+Okay.
+And since I didn't wipe out the Valmises year condition, I still preserved the text, you know, if this is a lecture, you will naturally expect me to ask a question, what's the connection between Tresca and vomisses?
+I will not literally ask you to do the algorithm, which will be too complicated, but, you know, if I were to ask you to make an educated guess, what would be your intuition?
+The conclusion is the Tresca yield surface, or the yield condition, is inscribed by the circle of the von Mises yield criteria.
+So I'm gonna write it down, and then I'm gonna sketch it to explain what do I mean by that, right?
+So, the conclusion is the Tresca Yield.
+Condition.
+is… inscribed.
+Bye… So when I write, well, Mrs.
+Circle, you probably know what I mean, right?
+It's the hue surface projection of the pipeline.
+And I'm gonna sketch the schematic for that.
+So, see, on the pipeline, I have 3 axes.
+S1, S2, and F… Great.
+and I… Cemetery's gonna draw S1 tilde.
+Elongate all three axes.
+What does the MSU criteria look like?
+As you recall, or previous part of this video, it looks like A circle, a circular-shaped U-surface.
+I can draw this.
+Nice.
+Beautiful circle.
+Look at that.
+Wow, okay.
+And, what is, Cheska?
+Commission, or your criteria.
+look like, because I already tell you it's inscribed by the longest circle, so on this projection plane, it will literally look like this.
+And, you know… This circle is… It won't miss us.
+yield criteria.
+For yield circle.
+This will be TRESCOM.
+Yo.
+Or we call it Eosurface, right?
+new service product.
+going towards the 1 axes.
+And… but this is in the general case.
+What about in 2D?
+What about the plane stress?
+Because we literally just derived what Mrs.
+Yield surface looks like in 2D, right?
+So in 2D, the conclusion remains the same.
+I brought it here, hope you guys can see it.
+I have space here.
+Goodbye.
+So if this is sigma 1 and sigma 2, in 2D, it would look like this.
+So this is… the Tresco.
+Yield surface, and… You know, this is… They… they have the same intersection of the axis, just to clarify.
+This is the, the one misses.
+And this is the yield stress of sigma Y.

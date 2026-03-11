@@ -1,0 +1,12 @@
+# Image overlay for this clip. Path relative to this file.
+# With segment_start and speed, start/end are source-lecture timestamps (converted to clip time).
+# x/y: left|center|right, top|center|bottom, or 0-1 ratio.
+# size: one number (e.g. 0.1) = scale to 10% of frame, image keeps original aspect; or width,height (e.g. 0.1,0.2).
+image: ../../fig/Yield_Tresca.png
+segment_start: 00:08:08
+speed: 1.5
+start: 00:40:37
+end: 00:43:43
+x: right
+y: top
+size: 0.5

@@ -1,0 +1,49 @@
+Recall in the lecture, We define if a material is isotropic: The plastic behavior can be described by three principal stress.
+Which here, we use sigma 1, sigma 2, and sigma 3 to denote the principal stress components.
+And the yield surface, is a function, which the variables are the three principles for us.
+So, I can write the yield function as a form, or the yield surface function.
+The yield surface.
+As a function of the three principal stresses.
+In the function close the model, closureModel, maybe put 0.
+And I recall another basic concept called hydrostatic stress.
+Which is… One-third of the summation of the three principal stresses.
+And if we have already covered this in lecture, you probably know that hydrostatic stress, by its name, you can imagine you have a metal ball or any spherical-shaped object, and then you put it under the ocean, deep in the water.
+And all the pressure are the same from all different directions, and it's a hydrostatic stress.
+And, if we already covered this in lecture, then you know that the hydrostatic stress It has no effect.
+Or a contribution in plastic deformation, so no effect in plasticity.
+Or in other words, classic deformation are caused by shear stress.
+So… But in general, Because the hydrostatic stress does not contribute to the plastic deformation, The yield surface of a material should have a prismatic shape, which we'll cover later.
+Why is that?
+So, I will draw a schematic to illustrate what I mean by the eel surface as a prismatic shape.
+But now let's say I have 3 principal stress components.
+And I can construct a base of… sigma 1, sigma 2, and sigma 3.
+Great.
+And, if I define this surface.
+that, intercept all the three actors.
+We can call it the 101 surface.
+Let's say this surface.
+It's sigma 1 plus sigma 2 plus sigma 3 equals 0.
+Then a yield surface of a material that's described by the three principal stress, it looks like, kind of like a cylindrical shape outwards, but not exactly cylindrical, this is what's called a prismatic.
+So it looks, roughly like this.
+And in the lecture note, there's a pretty good description.
+Or a schematic illustrating the yield surface.
+And this axis, it's an axis where all the three principal stress components are the same.
+This axis is, sigma 1 equals sigma 2 equals sigma 3.
+That's why we call it a surface that's perpendicular to this axis, we call it a 101, plane.
+And which is the surface?
+Okay, now this is the 3D schematic, or what does a general EO surface look like if we were to illustrate under the three principles stress.
+component or basis.
+And you can project on this plane and look at what does the eel surface look like in 2D?
+So we can draw this In terms of sigma 1, sigma 2, sigma 3.
+Alright, so we're just doing a 3D projection of 2D.
+It says, sigma 1… Sigma 2… sigma 3.
+And recall, we call this, the 111 surface.
+Oops And this is the axis pointing outwards, which is this axis, where all the three principal stress components are the same.
+So this axis is sigma 1 equals sigma 2 equals sigma 3.
+And the yield surface projection, it looks roughly like this.
+But this is what does a yield surface look like on a projection of this plane.
+And, so there's one comment.
+If you were to construct a yield surface for any general material described by the three principles rest, then… The important thing is… we have to satisfy this curve to construct the whole yield surface, such that the yield surface is just pointing outwards towards the axis where all the three principal stress components sing.
+So, when these… to satisfy, this curve.
+"Curve"
+... to construct the whole field surface.

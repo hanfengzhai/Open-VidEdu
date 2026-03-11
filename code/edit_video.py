@@ -2,6 +2,7 @@
 Extract a portion of a video between start and end times and save to a new file.
 Subtitles in the segment are burned in by default (from --subs WebVTT file).
 Optional speedup: --speed 2 plays the segment twice as fast.
+Order when speed != 1: first extract the segment at 1x from the raw video, then apply speedup (and subs) to that clip.
 Usage: python edit_video.py <input_video> <start_time> <end_time> [output_video] [--speed 1] [--subs FILE]
 Times can be in MM:SS or HH:MM:SS format (e.g., 31:00, 32:52 or 1:31:00).
 """
@@ -67,6 +68,56 @@ def parse_webvtt(path: str) -> list[tuple[float, float, str]]:
     return cues
 
 
+def parse_plain_text_subs(path: str, output_duration_sec: float) -> list[tuple[float, float, str]]:
+    """Parse plain-text file (one line per cue); assign times uniformly from 0 to output_duration_sec with no gap at the end."""
+    lines = [s.strip() for s in Path(path).read_text(encoding="utf-8", errors="replace").splitlines() if s.strip()]
+    if not lines:
+        return []
+    n = len(lines)
+    if n == 1:
+        return [(0.0, output_duration_sec, lines[0])]
+    d = output_duration_sec / n
+    out: list[tuple[float, float, str]] = []
+    for i, text in enumerate(lines):
+        start = i * d
+        # Last cue ends exactly at output_duration_sec so no point in the video has no subtitle.
+        end = output_duration_sec if i == n - 1 else (i + 1) * d
+        out.append((start, end, text))
+    return out
+
+
+def plain_text_with_webvtt_timing(
+    plain_path: str,
+    timing_path: str,
+    start_sec: float,
+    end_sec: float,
+    duration_sec: float,
+    speed: float,
+) -> list[tuple[float, float, str]]:
+    """Use WebVTT at timing_path for cue times, plain-text lines at plain_path for text. 1:1 by order: line 1 = first cue, line 2 = second cue, etc."""
+    timing_cues = parse_webvtt(timing_path)
+    if not timing_cues:
+        return []
+    filtered = filter_subtitles_for_segment(timing_cues, start_sec, end_sec, duration_sec, speed)
+    plain_lines = [s.strip() for s in Path(plain_path).read_text(encoding="utf-8", errors="replace").splitlines() if s.strip()]
+    if not plain_lines:
+        return filtered
+    out: list[tuple[float, float, str]] = []
+    out_dur = duration_sec / speed
+    for i, (s, e, orig_text) in enumerate(filtered):
+        text = plain_lines[i] if i < len(plain_lines) else orig_text
+        out.append((s, e, text))
+    if len(plain_lines) > len(filtered):
+        last_end = out[-1][1] if out else 0.0
+        remaining = len(plain_lines) - len(filtered)
+        span = (out_dur - last_end) / remaining if remaining > 0 else 1.0
+        for j in range(remaining):
+            start = last_end + j * span
+            end = start + span
+            out.append((start, end, plain_lines[len(filtered) + j]))
+    return out
+
+
 def filter_subtitles_for_segment(
     cues: list[tuple[float, float, str]],
     start_sec: float,
@@ -95,6 +146,83 @@ def write_webvtt(cues: list[tuple[float, float, str]], path: str) -> None:
         lines.append(text)
         lines.append("")
     Path(path).write_text("\n".join(lines), encoding="utf-8")
+
+
+def _normalize_text(text: str) -> str:
+    """Lowercase, collapse whitespace, remove punctuation for matching."""
+    s = re.sub(r"[^\w\s]", " ", text.lower())
+    return " ".join(s.split())
+
+
+def _phrase_word_match_score(phrase_norm: str, cue_text: str) -> float:
+    """
+    Score how well phrase matches cue: 0..1.
+    Uses in-order word presence; all phrase words in cue in order gives 1.
+    """
+    pw = phrase_norm.split()
+    cw = _normalize_text(cue_text).split()
+    if not pw:
+        return 1.0
+    j = 0
+    for i, w in enumerate(cw):
+        if j < len(pw) and pw[j] == w:
+            j += 1
+        elif j < len(pw) and pw[j] in w:
+            j += 1
+    return j / len(pw) if pw else 0.0
+
+
+def _find_best_matching_cue(
+    cues: list[tuple[float, float, str]], phrase: str
+) -> tuple[int, float] | None:
+    """
+    Find the cue that best matches the user phrase (may not be exact).
+    Returns (index, start_sec) of best cue, or None if no usable match.
+    """
+    phrase_norm = _normalize_text(phrase)
+    if not phrase_norm:
+        return None
+    best: tuple[int, float, float] | None = None  # (index, start_sec, score)
+    for i, (start, end, text) in enumerate(cues):
+        cue_norm = _normalize_text(text)
+        if phrase_norm in cue_norm:
+            # Exact substring: prefer earlier in segment
+            score = 2.0 - (start / 3600.0) * 0.001  # tie-break by start
+            if best is None or score > best[2]:
+                best = (i, start, score)
+        else:
+            # Fuzzy: phrase words in order in cue
+            score = _phrase_word_match_score(phrase_norm, text)
+            if score >= 0.5:
+                if best is None or score > best[2]:
+                    best = (i, start, score)
+                elif score == best[2] and start < best[1]:
+                    best = (i, start, score)
+    if best is None:
+        return None
+    return (best[0], best[1])
+
+
+def apply_word_mark_offset(
+    cues: list[tuple[float, float, str]], phrase: str
+) -> list[tuple[float, float, str]]:
+    """
+    Shift cue times so the cue that best matches the phrase starts at 0.
+    Drops cues that would end before 0; clamps start to 0 for cues that overlap.
+    """
+    match = _find_best_matching_cue(cues, phrase)
+    if match is None:
+        return cues
+    _idx, anchor_start = match
+    offset = anchor_start
+    out: list[tuple[float, float, str]] = []
+    for start, end, text in cues:
+        new_start = start - offset
+        new_end = end - offset
+        if new_end <= 0:
+            continue
+        out.append((max(0.0, new_start), new_end, text))
+    return out
 
 
 def parse_time(s: str) -> float:
@@ -142,6 +270,8 @@ def extract_segment(
     output_path: str,
     speed: float = 1.0,
     subs_path: str | None = None,
+    subs_timing_path: str | None = None,
+    word_mark: str | None = None,
 ) -> None:
     start_sec = parse_time(start_time)
     end_sec = parse_time(end_time)
@@ -155,9 +285,24 @@ def extract_segment(
 
     subs_filter = None
     temp_vtt = None
+    used_plain_text_subs = False
     if subs_path and Path(subs_path).exists():
         cues = parse_webvtt(subs_path)
-        filtered = filter_subtitles_for_segment(cues, start_sec, end_sec, duration_sec, speed)
+        if cues:
+            filtered = filter_subtitles_for_segment(cues, start_sec, end_sec, duration_sec, speed)
+        elif subs_timing_path and Path(subs_timing_path).exists():
+            filtered = plain_text_with_webvtt_timing(
+                subs_path, subs_timing_path, start_sec, end_sec, duration_sec, speed
+            )
+            used_plain_text_subs = True
+        else:
+            # Plain-text only (e.g. interm vid_N.txt): one line per cue, even spacing over output duration.
+            out_dur = duration_sec / speed
+            filtered = parse_plain_text_subs(subs_path, out_dur)
+            used_plain_text_subs = True
+        # Don't apply word_mark when using plain-text subs; line order is canonical.
+        if filtered and word_mark and word_mark.strip() and not used_plain_text_subs:
+            filtered = apply_word_mark_offset(filtered, word_mark.strip())
         if filtered:
             fd, temp_vtt = tempfile.mkstemp(suffix=".vtt")
             try:
@@ -171,39 +316,68 @@ def extract_segment(
                     Path(temp_vtt).unlink(missing_ok=True)
                 temp_vtt = None
 
+    # Use -ss after -i for accurate seeking (avoids A/V desync from keyframe-only seek).
     try:
         if speed == 1.0 and not subs_filter:
             cmd = [
-                "ffmpeg", "-y", "-ss", start_str, "-i", input_path,
-                "-t", duration_str, "-c", "copy", "-avoid_negative_ts", "1",
+                "ffmpeg", "-y", "-i", input_path, "-ss", start_str, "-t", duration_str,
+                "-c", "copy", "-avoid_negative_ts", "1",
                 output_path,
             ]
         elif speed == 1.0 and subs_filter:
+            # Reset PTS to 0 so subtitle times (0 to duration) match the video timeline.
+            v_filter = f"setpts=PTS-STARTPTS,{subs_filter}"
             cmd = [
-                "ffmpeg", "-y", "-ss", start_str, "-i", input_path,
-                "-t", duration_str,
-                "-vf", subs_filter,
+                "ffmpeg", "-y", "-i", input_path, "-ss", start_str, "-t", duration_str,
+                "-vf", v_filter,
                 "-c:v", "libx264", "-c:a", "copy", "-avoid_negative_ts", "1",
                 output_path,
             ]
         else:
-            v_filter = f"setpts=PTS/{speed}"
-            if subs_filter:
-                v_filter = f"{v_filter},{subs_filter}"
-            a_filter = _atempo_chain(speed)
-            filter_complex = f"[0:v]{v_filter}[v];[0:a]{a_filter}[a]"
-            cmd = [
-                "ffmpeg", "-y", "-ss", start_str, "-i", input_path,
-                "-t", duration_str,
-                "-filter_complex", filter_complex,
-                "-map", "[v]", "-map", "[a]",
-                "-c:v", "libx264", "-c:a", "aac", "-shortest",
-                output_path,
-            ]
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            print(result.stderr, file=sys.stderr)
-            raise RuntimeError(f"ffmpeg failed with code {result.returncode}")
+            # Order: first extract segment at 1x, then apply speedup (and subs) to the extracted clip.
+            temp_extract = None
+            try:
+                fd, temp_extract = tempfile.mkstemp(suffix=".mp4", prefix="edit_video_extract_")
+                os.close(fd)
+                # Pass 1: extract segment at 1x (no speed, no subs).
+                cmd1 = [
+                    "ffmpeg", "-y", "-i", input_path, "-ss", start_str, "-t", duration_str,
+                    "-c:v", "libx264", "-c:a", "aac", "-avoid_negative_ts", "1",
+                    temp_extract,
+                ]
+                result = subprocess.run(cmd1, capture_output=True, text=True)
+                if result.returncode != 0:
+                    print(result.stderr, file=sys.stderr)
+                    raise RuntimeError(f"ffmpeg extract failed with code {result.returncode}")
+                # Pass 2: speed up (and burn subs) the extracted clip. Subtitle times are 0 to duration_sec/speed.
+                v_filter = f"setpts=PTS/{speed},setpts=PTS-STARTPTS"
+                if subs_filter:
+                    v_filter = f"{v_filter},{subs_filter}"
+                a_filter = _atempo_chain(speed)
+                filter_complex = f"[0:v]{v_filter}[v];[0:a]{a_filter}[a]"
+                out_duration = duration_sec / speed
+                out_duration_str = format_duration(out_duration)
+                cmd2 = [
+                    "ffmpeg", "-y", "-i", temp_extract,
+                    "-filter_complex", filter_complex,
+                    "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-c:a", "aac",
+                    "-t", out_duration_str,
+                    "-avoid_negative_ts", "1",
+                    output_path,
+                ]
+                result = subprocess.run(cmd2, capture_output=True, text=True)
+                if result.returncode != 0:
+                    print(result.stderr, file=sys.stderr)
+                    raise RuntimeError(f"ffmpeg speedup failed with code {result.returncode}")
+            finally:
+                if temp_extract and Path(temp_extract).exists():
+                    Path(temp_extract).unlink(missing_ok=True)
+        if speed == 1.0:
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode != 0:
+                print(result.stderr, file=sys.stderr)
+                raise RuntimeError(f"ffmpeg failed with code {result.returncode}")
     finally:
         if temp_vtt and Path(temp_vtt).exists():
             Path(temp_vtt).unlink(missing_ok=True)
@@ -250,6 +424,18 @@ def main() -> None:
         action="store_true",
         help="Do not burn subtitles (overrides --subs).",
     )
+    parser.add_argument(
+        "--subs-timing",
+        default=None,
+        metavar="FILE",
+        help="WebVTT file to use for cue timing when --subs is plain text (one line per cue). Omit to use even spacing.",
+    )
+    parser.add_argument(
+        "--word-mark",
+        default=None,
+        metavar="TEXT",
+        help="First few words at start of this clip; subtitle times are shifted so the best-matching cue starts at 0 (use with word_mark.txt).",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input_video)
@@ -276,6 +462,8 @@ def main() -> None:
             output_path,
             speed=args.speed,
             subs_path=subs_path,
+            subs_timing_path=args.subs_timing,
+            word_mark=args.word_mark,
         )
         print(f"Saved segment to: {output_path}")
     except (ValueError, RuntimeError) as e:

@@ -2,7 +2,7 @@ WEBVTT
 
 1
 00:00:03.700 --> 00:00:19.630
-Hello, class. It's me again. Hopefully, by the time you are watching this video, you already have a decent, basic understanding of plastic deformation. Today, we'll continue our discussion on plasticity. In particular, we'll talk about field surface.
+Hello, class. It's me again. Hopefully, by the time you are watching this video, you already have a decent, basic understanding of plastic deformation. Today, we'll continue our discussion on plasticity. In particular, we'll talk about yield surface.
 
 2
 00:00:19.800 --> 00:00:26.259
@@ -18,15 +18,15 @@ The stress is a linear response corresponding to a strain, and once you reach a 
 
 5
 00:00:39.880 --> 00:00:54.949
-the material started to yield. Again, I have to emphasize, if you unload the material, and if it goes back to original origin, it means there are no plastic deformation, so not all nonlinear stress strength curve indicators are plastic deformation.
+the material started to yield. Again, I have to emphasize, if you unload the material, and if it goes back to origin (of the coordinate), it means there are no plastic deformation, so not all nonlinear stress strength curve indicators are plastic deformation.
 
 6
 00:00:54.950 --> 00:01:00.660
-But today, let's assume we're in the general context of plastic deformation. Yerushi, your point.
+But today, let's assume we're in the general context of plastic deformation -- in which you reach a yield point.
 
 7
 00:01:01.020 --> 00:01:07.600
-And if you unload material, and you generate a plastic hermit deformation, and then you reload it.
+And if you unload material, and you generate a plastic permanent deformation, and then you reload it.
 
 8
 00:01:07.990 --> 00:01:15.319
@@ -34,7 +34,7 @@ Which can be seen in the lecture note. So today we're mostly talking about the y
 
 9
 00:01:15.470 --> 00:01:25.390
-Recall in the lecture, We define if a material It's is isotropic.
+Recall in the lecture, We define if a material is isotropic:
 
 10
 00:01:28.390 --> 00:01:34.510
@@ -42,7 +42,7 @@ The plastic behavior can be described by three principal stress.
 
 11
 00:01:41.110 --> 00:01:46.850
-Which here, we use sigma 1, sigma 2, and sigma 3 to denote the principal strings.
+Which here, we use sigma 1, sigma 2, and sigma 3 to denote the principal stress
 
 12
 00:01:47.030 --> 00:01:48.190
@@ -478,7 +478,7 @@ And the thing is, I'm not gonna prove it mathematically. I'm gonna prove it geom
 
 120
 00:14:17.580 --> 00:14:18.760
-geometric.
+geometric proof.
 
 121
 00:14:23.290 --> 00:14:25.160

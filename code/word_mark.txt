@@ -1,0 +1,4 @@
+# Optional: first few words for each interm video to align subtitles (closest match used; text need not be exact).
+new_vid_2.mp4: "recap of the lecture"
+new_vid_4.mp4: "yield surface as a function"
+new_vid_6.mp4: "the yield surface look like"

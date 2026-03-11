@@ -1,0 +1,658 @@
+Hello, class.
+It's me again.
+Hopefully, by the time you are watching this video, you already have a decent, basic understanding of plastic deformation.
+Today, we'll continue our discussion on plasticity.
+In particular, we'll talk about yield surface.
+A little bit short recap of the lecture.
+What is a plastic deformation?
+If we draw a square strain curve, For linear elastic material.
+The stress is a linear response corresponding to a strain, and once you reach a yield point.
+the material started to yield.
+Again, I have to emphasize, if you unload the material, and if it goes back to origin (of the coordinate), it means there are no plastic deformation, so not all nonlinear stress strength curve indicators are plastic deformation.
+But today, let's assume we're in the general context of plastic deformation -- in which you reach a yield point.
+And if you unload material, and you generate a plastic permanent deformation, and then you reload it.
+Which can be seen in the lecture note.
+So today we're mostly talking about the yield surface when the materials start to yield.
+Recall in the lecture, We define if a material is isotropic: The plastic behavior can be described by three principal stress.
+Which here, we use sigma 1, sigma 2, and sigma 3 to denote the principal stress components.
+And the yield surface, is a function, which the variables are the three principles for us.
+So, I can write the yield function as a form, or the yield surface function.
+The yield surface.
+As a function of the three principal stresses.
+In the function close the model, closureModel, maybe put 0.
+And I recall another basic concept called hydrostatic stress.
+Which is… One-third of the summation of the three principal stresses.
+And if we have already covered this in lecture, you probably know that hydrostatic stress, by its name, you can imagine you have a metal ball or any spherical-shaped object, and then you put it under the ocean, deep in the water.
+And all the pressure are the same from all different directions, and it's a hydrostatic stress.
+And, if we already covered this in lecture, then you know that the hydrostatic stress It has no effect.
+Or a contribution in plastic deformation, so no effect in plasticity.
+Or in other words, classic deformation are caused by shear stress.
+So… But in general, Because the hydrostatic stress does not contribute to the plastic deformation, The yield surface of a material should have a prismatic shape, which we'll cover later.
+Why is that?
+So, I will draw a schematic to illustrate what I mean by the eel surface as a prismatic shape.
+But now let's say I have 3 principal stress components.
+And I can construct a base of… sigma 1, sigma 2, and sigma 3.
+Great.
+And, if I define this surface.
+that, intercept all the three actors.
+We can call it the 101 surface.
+Let's say this surface.
+It's sigma 1 plus sigma 2 plus sigma 3 equals 0.
+Then a yield surface of a material that's described by the three principal stress, it looks like, kind of like a cylindrical shape outwards, but not exactly cylindrical, this is what's called a prismatic.
+So it looks, roughly like this.
+And in the lecture note, there's a pretty good description.
+Or a schematic illustrating the yield surface.
+And this axis, it's an axis where all the three principal stress components are the same.
+This axis is, sigma 1 equals sigma 2 equals sigma 3.
+That's why we call it a surface that's perpendicular to this axis, we call it a 101, plane.
+And which is the surface?
+Okay, now this is the 3D schematic, or what does a general EO surface look like if we were to illustrate under the three principles stress.
+component or basis.
+And you can project on this plane and look at what does the eel surface look like in 2D?
+So we can draw this In terms of sigma 1, sigma 2, sigma 3.
+Alright, so we're just doing a 3D projection of 2D.
+It says, sigma 1… Sigma 2… sigma 3.
+And recall, we call this, the 111 surface.
+Oops And this is the axis pointing outwards, which is this axis, where all the three principal stress components are the same.
+So this axis is sigma 1 equals sigma 2 equals sigma 3.
+And the yield surface projection, it looks roughly like this.
+But this is what does a yield surface look like on a projection of this plane.
+And, so there's one comment.
+If you were to construct a yield surface for any general material described by the three principles rest, then… The important thing is… we have to satisfy this curve to construct the whole yield surface, such that the yield surface is just pointing outwards towards the axis where all the three principal stress components sing.
+So, when these… to satisfy, this curve.
+"Curve"
+... to construct the whole field surface.
+Alright, so this is just the general construction or definition, if you wish.
+of the eOS surface, and now we'll dive into a few more examples for more specific criteria.
+We use, in general, engineering applications or in research.
+So, the most classical example would be the pharmace's yield criteria for condition.
+Chicago.
+Mrs.
+You would have criterion or condition.
+So if you follow condition, following the retro node.
+Okay, but what is, oh, misses yield criteria.
+So, if we have already successfully covered this part in the lecture, you probably already know what's the concept of J2.
+K2 plus a C.
+So J2 is, by definition, one half And the square sum of all the rhetoric stress components.
+1 half S1 squared plus S2 squared plus 3 square, I think 3 dimension, and hopefully, when you're watching this video, you already know how to calculate S1, F3 after you finish the lecture.
+equals.
+K… Square.
+in the case of the value that's specified by the J2.
+And we call this, maybe we call this equation cross.
+And S1, S2, S3, we can call them, the principal stresses.
+of the debitoric stress tensor, SIJ.
+Stress tensor, side jam.
+Cool.
+And recall our previous definition, what is the definition of?
+The hydrostatic stress, so… It's defined as one-third the summation of all the three, stress components.
+I'm principal stress, I'm pulling it, sorry.
+Then you already know how to calculate S1, S2, S3 from, from the general stress, principal stress component, minus the hydrostatic stress.
+So… That's this right now, let's just write it down in detail, right?
+So what's S1?
+S1 should be the first principal stress component minus the hydrostatic stress.
+So sigma 1 minus sigma bar, right?
+Same for S2, sigma2 minus sync before?
+And, and 3 equals… whoops.
+It's poor, space management, I guess.
+Let's see, okay?
+So let's say this is a definition of the three, deviate fabric.
+of principles for us, right?
+So… We use this formula.
+we substitute back into, this equation, then, you know, my favorite term that I like to use in public session and lectures, we do some algebra, right?
+For efficiency to deliver the main message, I'm going to skip the algebra.
+So what is the conclusion by the algebra?
+So k squared, the value we defined here, by construction or by dimension equals to K2.
+We'll go to J2.
+Which is 1 half, you know, the three, principal torque stress component, so just plug in this and do the algebra, you know.
+Sigma 1 minus sigma R squared plus blah blah blah, you know, just… We went back here And after the algebra, what do you get?
+You get this, 1-6… And algebra is in the lecture note, so please refer to the lecture note if you want to do algebra and check it yourself, right?
+Sigma 1 minus sigma 2 squared.
+Plus sigma 2 minus… Sigma 3 squared, plus… Sigma 3 minus.
+Sigma 1 square.
+Alright, so this is K-squared.
+So what is this?
+What does the EO surface look like?
+Since it's a video, I cannot give you a quiz or take a student to answer the question, so I'm going to tell you what does it look like, right?
+It looks like a circle.
+So, if we were to draw this, the principal stress projection.
+Let's say, sigma 1, sigma 2, and sigma 3.
+The yield surface, that projected on this plane, it looks like this.
+So this is what we caught.
+the yield… surface.
+All right, and again, just to re-emphasize my point, so this axis, pointing outwards, because this, this plane, we call it the 111 plane, so this axis… That's where sigma 1 equals sigma 2 equals.
+Sigma 3.
+Alright, but it looks like a circle.
+And, I'm not sure about you guys, but if I were to… if I'm watching this video, and I look at this, okay, you do some algebra, you have 1 sixth, sigma 1 minus sigma 2 squared plus sigma 2 minus sigma 3, plus blah blah blah.
+How do you intuitively just make it concrete that this looks like a circle?
+Actually, this conclusion is what I just directly gave it to you guys, and now I'm gonna prove it, right?
+So, why does this formula, this complicated formula, unless you have you know, genius mathematical intuition, and you can imagine a circle, it would be very hard, at least for me, it would be very hard for me to, okay, see a circle out of this algebra.
+But now I'm going to prove it to you guys, why does this equation end up to be a circular yield surface on the 11 plane projection.
+As well, when projection.
+And the thing is, I'm not gonna prove it mathematically.
+I'm gonna prove it geometrically, right?
+So I'm gonna give you a… geometric proof.
+So how do I prove it geometrically?
+Then I first wipe out the general definition, and I use this part of whiteboard.
+So, we start with this plane, this plane projection.
+Now let's draw this plane right here.
+I say this is the 111, the projection plane, right?
+It has a normal axis, Pointing outwards.
+I guess this one, one, one… Alright, cool.
+And the plane has 3, so in a projected direction, the plane has three.
+this way?
+Three X's?
+Let's call him.
+S1… S2?
+and S3.
+And as we know, S1, S2, S3 are the three principal stress components minus the hydrostatic stress.
+But this is the origin.
+We have the three… the principal deroteric stress component, and the three… actually, the three, principal stress components on the schematic, it looks like this, is actually a point outwards of point.
+So… thing, this is, you know, this is S2, this is sigma 1, sigma 2.
+and, Sigma 3.
+Okay, nice.
+And, let's see… Anywhere to draw this?
+You know, this is… Error.
+Everything looks like a projection, their relationship, things like this.
+Alright, And the three principal stress components, sigma 1, sigma 2, sigma 3, they, signify as, three axes, but as we recall, this is 111, right?
+So how do we, write sigma 1, sigma 2, sigma 3?
+I'm just… I can give you the conclusion with 10010, and 001.
+There are.
+orthogonal.
+So, for sigma 1 is… my construction is 1, 0, 0.
+For sigma 2, it's 010.
+For Sigma 3 years.
+001.
+Cool.
+And, there's a term, if you go to lecture node, there's a specific definition for this plane.
+We call this plane called the pi plane.
+And we'll be using that a lot.
+And one more comment, which you guys probably already know the interference, what is the 1-1 axis again?
+It's the axis where all the three principal stress components are the same.
+So, sigma 1 equals sigma 2 equals sigma 3.
+In this plane, if this is the origin of the coordinate system, then again, this plane signifies sigma 1 plus sigma 2 plus sigma 3.
+Equals zero.
+And from the definition of S1, S2, S3, the three principal hypertoric stress component.
+my favorite term again, we're gonna do some algebra, which I'm gonna skip.
+So, from… Some algebra, right?
+What we can.
+We can't… S1, S2, and S3.
+A can be written in the form of the three principal, stress components, sigma 1, sigma 2, sigma 3, which I'm going to give you the conclusion.
+2 minus… Sorry, 2 sigma 1 minus sigma 2 minus sigma 3.
+Divide by 3.
+Minus sigma 1 plus 2 sigma 2 minus sigma 3.
+DY by 3… And minus sigma 1 minus sigma 2 plus 2 sigma 3.
+Divided by 3.
+Okay.
+So this is the 3D schematic.
+of, the, axis, the basis.
+Or what does it generally look like?
+Now I'm gonna… Imagine I have a pie.
+I'm gonna do a top-down view, right?
+Do a projection.
+What does this projection look like?
+say I have 3 principal debatoric stress components.
+I have S1, S2, And that's free.
+And this is the origin.
+And now, here's a trick.
+I'm gonna define a new axis.
+Because when you do the projection on this plane, let's say in the general 2D case, usually when we build a cartition corner system, you have X and Y, and the two axis are perpendicular to each other.
+So now, because, remember, now I'm actually doing, just to remind you, if… in case you forget, now I'm trying to do a geometric proof, right?
+So when I'm doing geometric proof, we wanted to do something that we are familiar with, which is try to sort of construct a Cartesian coordinate system where you have orthogonal axis.
+So I'm going to define a new axis that's pointing towards a traditional X direction, so that it's such that S2 is pointing towards the, in a general sense, Y direction, if that helps.
+So I'm gonna call this… S1 tilde.
+And again, I just want to emphasize that, you know, this is by construction, or we construct Yes.
+Alright.
+And to mathematically represent this axis, we have… out of plan, we have 100, we have 010001, and this is 111, so in a general formulation, the mathematic formulation for this, this axis for S1 tilde.
+Inspiration to ask?
+1, 0… minus one, or one bar.
+One bar is basically minus one.
+Yeah, so if this is 100, then, Minus 1 is pointing towards the opposite direction.
+And, just one more thing.
+So… the 101 bar, this axis, is not exactly S1 tilde.
+It's, you have to scale S1 tilde by square root 3.
+So I'm a small facility.
+And… So, no.
+I paled.
+This, but we're still doing the one lesus material.
+So what is, S1 tilde?
+That's basically how do we write it down?
+That's one tilda.
+Can be written as a function of Sigma 1 and Sigma 3.
+So it's actually sigma 1 minus sigma 3, divided by square root 3.
+which you substitute the equation I just wiped out, you know, substitute the hydrostatic, and the hydrostatic stress can be canceled out, but it turns out to be S1 minus S3.
+That square root.
+Okay.
+Fuck.
+And we define this equation as equation star.
+And this is a pure geometric construction of S1 tuta, based on S1, S3.
+So from this equation, we can further derive the correlation between S1 and S2, and also S3 and S2, because we know there's a correlation between S1, S2, and 3, and then we just design S1 tilde.
+So then we can, through S1 tilde, we can build up the connection or construction.
+Finding the correlation between S1 and S2 and S12.
+So, you know, from… Equation star.
+We can get S1 equals.
+half square root 3, S1 tuta, minus half S2.
+And also S3.
+minus… half square root 3 as 1 tilde minus 1 half S2.
+Alright, so we're still in the middle, middle algebra.
+Recall, this is the definition of the whole, Barnesis squares criteria, which is the J2 equals K squared.
+So now we're going to substitute equation star, and the equation that we derived from the equation star, because we already know the correlation between, S1 and S1 tilde, or S2 and S1 tilde, S3 and S1 tilde.
+So we're going to plug this back into equation cross.
+So… You know, substitute.
+this?
+Back to… Equation crossed.
+So what do we get?
+We have A squared, equals J2, equals… I'm just using the definition equation we just wrote down, right?
+1 half as 1 squared plus… That's 2 squared plus.
+That's 3 squared.
+So far, so everything's the same.
+No difference?
+Doing the algebra.
+What do we have?
+3 over 4.
+S1… tilde squared plus S2 squared.
+now this thing is becoming interesting, right?
+So… If you have a good mathematical instinct, when you see this equation, you probably have a sense, okay, this looks… Basically, it's telling us this is a circle, but we can… further, move a step forward, right?
+So what's the equation of a circle, or how do we move this, you know, make some connection with the actual equation of a circle?
+Basically, it's X minus some… some position, the origin, right?
+If the origin is at the origin of the coordinate system, 0, then it's X squared plus Y squared equals R squared.
+So we can reconstruct this, equation into S1… Tilda squared plus… As 2 squared equals… Let's substitute this back, and do the algebra, right?
+there's K-Square, and then, the… 3 over 4, then it becomes 2.
+square root of 3, K, squared… Right?
+And further… from the lecture, you probably already know the correlation between K and EU stress.
+just in case, if I didn't make… define a symbol, the yield stress is sigma Y, so, substitute Okay, and sigma Y using the square root 3 correlation that you have.
+2 over 3, yield stress.
+square.
+So this is literally the equation of a circle that, using, you know, pure geometric concept, we kind of prove that the Von Mises stress, yield surface is a circle.
+Right.
+Okay, so I hope now this… Clarifies, or clear.
+You're… your understanding?
+And, one more comment.
+So, we finished the geometric proof.
+And, well, Mrs.
+new criteria?
+Commission.
+Is?
+2 over square root 3K, equals, or case by constructed by definition, the square root of J2.
+It's 2 over 3 yield stress.
+on the pipeline, which is the plane we just defined, the one.
+Hi, funny.
+This is an important conclusion we'll take upon just by doing mathematical geometric analysis.
+And, we can then define the yield surface much more accurately, more precisely.
+On the pi plane, the three axis that's being projected on the plane is the three principal derivatoric stress component, which is S1, S2, and S3, so we can plot where… Sketch as schematic.
+We have S1.
+S2 and S3.
+You have a circle.
+And this axis that's pointing outwards, it's a one-on-one axis, where… As I have repeated 100 times, where all three principal stress components are the same.
+And on the surface, you know, because this is the EL surface, so… are the points that's being applied on the surface satisfy 2 over square root 3K equals 2 over 3 yield stress, which is the one means the yield criteria.
+And the radius is literally 2 over.
+square root of 3K.
+Okay, nice.
+So this is the general construction of the, well, misses, yield criteria in 3D.
+And… Having taken this class for… taken this class for five, six weeks now, you probably already know, to solve problems, we like to solve problems in 2D.
+2D is… it's good for research, right?
+But we want to try to construct, simplification in 2D, so actually we can derive an analytical assumption.
+So I'm… so what's the… well, this is EU criteria in 2D?
+I'm gonna briefly derive The condition under plain stress.
+So, what is the… I'll miss this.
+Jupiterio.
+under plant stress.
+Alright, I got a white image tool part.
+And if you recall, How do we define plane stress?
+Which is… Sigma 3 equals 0.
+The third principle of stress component, zero, because there is no stress.
+In the Z direction.
+And correspondingly, the third principal stress also goes to zero.
+And we already know this is a definition, or by construction.
+We construct, this is how this is… your criteria is being defined, so we just literally substitute the equation with J2, right?
+So what is J2 here?
+J2, you know, by skipping the algebra, would directly use the conclusion on 6, Sigma 1 minus sigma 2 squared plus sigma 2 minus sigma 3 squared.
+Plus sigma 3 minus sigma 1 squared.
+And this is my favorite term, in some algebra, what we have… eventually, we end up with, because we don't have sigma 3, right?
+We end up with 1 3rd, 1 3rd.
+Sigma 1 squared minus sigma 1 sigma 2 plus sigma 2 squared.
+equals K squared.
+Cool.
+And what can we further get from this equation?
+We further obtain that sigma 1 square minus sigma 1.
+Sigma 2 plus sigma 2 squared equals square root 3K squared, which is the yield stress.
+Square.
+Okay.
+and the shape of the yield surface on the projection of the two principal stress, because there are no… there's no such thing of the third principle stress on the plane stress.
+So if you plot it under sigma 1 and sigma 2 filter, this equation.
+what would be your intuition?
+I don't know.
+If your intuition isn't… look… probably looks like an ellipse, then congratulations, you have the correct intuition.
+So, it should roughly… Looks like this, so we have sigma 1.
+Sigma 2.
+This is the origin, right?
+This equation corresponding to… Shape, that looks like.
+this?
+And this is the yield stress.
+Sigma Y.
+inter… Intersection between the eosurface shape and the principal stress axis should be sigma Y.
+But this is what we call the shape of… you know, you surface, In 2D, under playing stress or something.
+And just a few more comments of… It was EO surface.
+Such that you have a deeper understanding of the seal surface.
+Okay, so what we call, you know, a few special points.
+First thing is, under pure tension.
+sigma 1 under… just under pure retention scenario.
+Sigma 1 is a yield stress.
+And sigma 2 is 0.
+It was rushing in the wonder.
+And under pure shear.
+sigma 1 equals K, by construction.
+the square root J2.
+And sigma 2 equals minus K.
+Third one will be… would be much more interesting.
+So, for a material under biaxial tension, you're both, pulling on the two axes simultaneously.
+Both sigma 1 and sigma 2 equals that yield stress.
+Hope you can see that part.
+Clearly.
+Nice.
+So, we finish the… well, Mrs.
+EO criteria.
+We first derive it… based on the definition, we first derive it in 3D, and then we sketch, and what does it look like in 3D on the principle when one plane, you know, the pipeline projection, it looks like a circle, and then we derive, what does the hormesis yield criteria look like in 2D underplane stress assumption.
+And if you're interested.
+Welcome to do another exercise, deriving yourself, you know, plane strain, and, you know, applying different loading conditions, and see what's sigma and sigma 2 under plane stress and all that.
+You know, you are very welcome to also Ask me questions after class about this, too.
+But we have finished our Mrs.
+Yield criteria, now we're going to go to another famous yield criteria called Tresca yield criteria, or Tresca yield condition.
+And I'm gonna wipe out… That thing about Barnesus.
+So I'm just gonna mark that, okay, we've finished this, right?
+See if I have a bit of marker.
+Oh, nice.
+Okay, this one's good.
+Alright.
+Boy.
+So, I'm gonna start with… Cheska?
+yield condition.
+So, what's by definition, what is Tresca yield condition?
+By construction, by definition, Tresca is defined as The absolute difference between, any two principal debitoric stress components equals to a constant, which we define as 2KT, which T signifies stress code.
+So, S1 minus S2.
+value equals 2KT.
+S2 minus… And 3… plus 2KT… S.
+3 minus S1 equals… 2KT.
+And, well, I already, you know, erased that, but if you still recall, I defined a thing called S1 tilde.
+first to illustrate what does the ESRS look like on the pipeline, and then we use S1 tilde to explain it looks like a circle.
+So we're going to still use S1 tilde here in the trust.
+So we can write this whole condition, you know, more right.
+In terms of… S1 tilde and S2.
+Again, my favorite term, we're gonna skip the algebra, let's do some algebra.
+The absolute value square root of 3 over 2S1 tilde minus 2S2 equals 2KT.
+Now, because it's kind of like doing a geometric projection or operation, such that you have 3 axes, and then now you fine-tune, and now you only operate on two axes.
+two degrees of freedom, using two variables.
+Now you only have S1 tilde.
+and S2.
+And this is the same, square root of 3 over 2.
+This one tilde, plus… 3 over 2 as 2, 2.
+Absolute value equals… 2KT.
+And the third formula equation will be 2 over 3S1 to the… You close.
+You're kidding.
+So this is the mathematical definition of the Tresca yield criteria.
+And this form, this whole mathematical form, you know, if you look at it in terms of S12 and S2, it can form where it has a shape of hexagon with a side lens of 4 over 3KT.
+You know, so this form… In terms of S1, 2 to S2.
+You know, as a… Accident.
+of the side lens.
+Oops.
+4 over 3KT equals… 2 over 3… yield stress.
+And when I just say hexagon, it probably, you know, for some of you, it might click, but for some of you, you might see one or what does it look like, so I'm gonna sketch it.
+Schematic.
+So this is S2, right?
+Recall?
+S1 is perpendicular to X2.
+So, S1 tilde.
+And, I'm asked to still draw S1 and S3.
+Oops.
+Jeez.
+So, what does the Tresca yield surface look like?
+It looks like… This, and then… Oh, my kidding.
+Projected, elongated in the opposite direction.
+Looks like this… And then… It's S2… Looks like this.
+Because… Those are a little bit weird-shaped hexagon, but, you know… I'll take it.
+Okay, it looks like this.
+And… I don't know.
+The intersection of the two axes would be 2 over square root 3KT.
+Right.
+And this will be the Tresca EO surface look like according to this definition of mathematical construction.
+And this side lens, is 4 over 3QT.
+Three… Thank you.
+Okay.
+And since I didn't wipe out the Valmises year condition, I still preserved the text, you know, if this is a lecture, you will naturally expect me to ask a question, what's the connection between Tresca and vomisses?
+I will not literally ask you to do the algorithm, which will be too complicated, but, you know, if I were to ask you to make an educated guess, what would be your intuition?
+The conclusion is the Tresca yield surface, or the yield condition, is inscribed by the circle of the von Mises yield criteria.
+So I'm gonna write it down, and then I'm gonna sketch it to explain what do I mean by that, right?
+So, the conclusion is the Tresca Yield.
+Condition.
+is… inscribed.
+Bye… So when I write, well, Mrs.
+Circle, you probably know what I mean, right?
+It's the hue surface projection of the pipeline.
+And I'm gonna sketch the schematic for that.
+So, see, on the pipeline, I have 3 axes.
+S1, S2, and F… Great.
+and I… Cemetery's gonna draw S1 tilde.
+Elongate all three axes.
+What does the MSU criteria look like?
+As you recall, or previous part of this video, it looks like A circle, a circular-shaped U-surface.
+I can draw this.
+Nice.
+Beautiful circle.
+Look at that.
+Wow, okay.
+And, what is, Cheska?
+Commission, or your criteria.
+look like, because I already tell you it's inscribed by the longest circle, so on this projection plane, it will literally look like this.
+And, you know… This circle is… It won't miss us.
+yield criteria.
+For yield circle.
+This will be TRESCOM.
+Yo.
+Or we call it Eosurface, right?
+new service product.
+going towards the 1 axes.
+And… but this is in the general case.
+What about in 2D?
+What about the plane stress?
+Because we literally just derived what Mrs.
+Yield surface looks like in 2D, right?
+So in 2D, the conclusion remains the same.
+I brought it here, hope you guys can see it.
+I have space here.
+Goodbye.
+So if this is sigma 1 and sigma 2, in 2D, it would look like this.
+So this is… the Tresco.
+Yield surface, and… You know, this is… They… they have the same intersection of the axis, just to clarify.
+This is the, the one misses.
+And this is the yield stress of sigma Y.
+is minus.
+Sigma Y, right?
+And so this… would be Levo missus.
+And this, the internal one, That is being prescribed.
+It's a Trescar.
+Okay.
+So we have geometrically explained, most of mamesis and Etruscan yield surface, and show you what does it look like intuitively.
+Either in 3D or on the project… projected pipeline.
+And now we're going to do a little bit deeper, which we actually entered the research part of plasticity, which is a very popular hot topic in solid mechanics, which is the flow And I'm not wipe.
+Oh, the equation.
+I have for Mrs.
+Entresco.
+Well, I'm gonna use an example, It's probably the simplest example we can have, which is there's no string hardening, we use a perfectly plastic material.
+So, what is the flow rule?
+or imperfect.
+Perfectly.
+Classic.
+material.
+And I would assume, or at least I hope, by the time you're watching this video, you already finished the lecture, and I hope it is being covered.
+What does the perfect plastic look like?
+Stress and strain… Once you reach the healed point and stress.
+As I say, there's no strain hardening or strain softening.
+And, also, I would assume you already know the basic equation of plasticity, at least from lecture note chapter, or handnote number 13.
+Now I'm doing 14, right?
+So, the elastic response, according to the basic fundamental equation of plasticity.
+The elastic response.
+Would be the shear, sheer part of the elastic strain.
+Which we use little e to denote.
+E-I-J, Elastic, you know.
+So share, right?
+You already know, so I don't need to… Right now, equals 1 over 2 mu.
+Mu is the shear modulus.
+And diabetoric stress.
+And if we were to make an increment, or the direction of the elastic Eventory plastic strain.
+Damn.
+D-E-I-J-E-L.
+That direction?
+Yes.
+1 over 2 mu, DSIP.
+This is just, you know, linear algebra.
+Sorry, sorry.
+That's derivative.
+Order, duh.
+I also say calculus, anyway.
+Plastic… Response.
+Oopsie.
+So, classic… Here's a strength rate.
+So we're talking about flow rule, right?
+This is great.
+It's 1 over 2 mu, and I hope we already know what's the rate, right?
+Time difference.
+Lambda.
+Tilda.
+It's a parameter that is, elaborate on the lecture note that hopefully will be delivered in lecture.
+Be calculus.
+And D epsilon ij classic is SIJ over 2 mu.
+Lambda tutel down.
+DT.
+And by combining The plastic and elastic.
+increment.
+So, you know, if we move, if we make, make a… not make a step forward, and a total… Yes, Hardik.
+strain increment.
+would be… DEIJ equals elastic part.
+Classic part, plus the plastic part.
+D… EIJ elastic, plus the epsilon IJ plastic.
+And you literally just substitute the equation.
+do the algebra, then you'll end up with DSIJ, the derivatoric stress component, over 2 mu.
+plus… SIJ over 2 mu.
+And then just plug in this formula, DT, because you're doing, strain rate.
+Here comes the most I would say interesting.
+Or, challenging part.
+of this video, which I hope to use this to… to finish, wrap up this video.
+How would you interpret The classic flow process, at least under the context of a perfectly plastic material.
+geometrically, because, you know, for the first half of this video, we've been doing a lot of geometry, geometric interpretation under the principle of stress, axis or space.
+How do you interpret what misses your criteria and test your criteria.
+So how would you interpret, geometrically interpret the plastic deformation once you reach the yield point?
+I'll try my best to deliver this.
+So, now let's say you have an origin.
+Right?
+And then you have a stress path to load this material.
+And honestly, this is, you know, a yield surface.
+Okay, so, this is the… You… surface.
+And now you're gonna start to load this material by incrementingly adding stress.
+And it's not what I say, just… stressed?
+Stress passes towards this.
+You know, awesome.
+Some space, in some… Euclidean Space.
+So you're stressed past.
+And before you're reaching the yield surface, you're in the elastic region, where If you apply a stress, the corresponding strain path should be proportional, because it's elastic response, or elastic, so it should be proportional to the applied stress, right?
+So, you know, if the stress is following this stress path.
+I'm loading according to this pass.
+Then, you know, these are different stress projection, and this is the point where the material yield.
+Right.
+And what causes… Divia Torik.
+Stress pass, to be precise.
+And before I reach the yield point, in this regime.
+I'm still in the elastic regime, so they're proportional.
+So, given this stress, the corresponding strain, you know, should, look like this.
+proportionally.
+And just, literally, he lost it.
+Until… You've reached a guild point.
+So, the moment you reach the yield point, before you go beyond the yield point, it is still proportional.
+So, if this is the dewater stress path, We can call this.
+the eviatoric… Strain pass.
+And, based on our calculus knowledge, we know this.
+If the stress follow a path, and those are the stress components, then you can do calculate the derivative, and you know what's the direction of, DSJ, so if those are SJ, right?
+So… But DSJ?
+Say, it follows this direction.
+This is DSK, right?
+So, accordingly, those, stress components, they have their corresponding DSJ.
+et cetera, et cetera.
+Okay.
+Now, let's say this is where yield happens.
+So, when the stress reaches the yield point, the strain path is no longer proportional To the stress pass.
+And it will start to change, right?
+Let's say changes to this path, because now you are entering… There's no string hardening, so the yield surface stays as it is, right?
+I mean, if there's string hardening, the yield surface can potentially expand, and there's string softening and shrink.
+They're a very complicated mechanism, but because we're talking about a perfectly plastic material, the yield surface remains as it is.
+And for any strain path, let's say if the strain follows this path, and at this particular point.
+You can calculate your divertoric strain according to the fundamental equation of plasticity.
+So, let's say here… the EIJ, or the Algebra 5 definition.
+the change, or the direction of EIG, if I were to take a further step, right, take a further step.
+DEIJ, following the equation we just derived, is The elastic part of the deviatoric strain, boss, the plastic part.
+Epsilon YJ.
+Classic.
+And by construction, this… this formula, we know is… is a… is a vector, operation, right?
+So, if this is… this pointing to DIJ, then this can be decomposed to this as… DEIJ elastic, and this will be DIJ plastic, right?
+So, DEIJ… Elastic is… DSIJ on the definition.
+Making a step.
+Change of the debatoric stress divided by the… The sheer modulus.
+In this park, would be, D epsilon ij Plastic.
+Which is… SIJ, and since we start with the plus extreme rate, right, so there's SIJ over 2 mu, modulus.
+Lambda dt.
+Of course, we're making time increment.
+So this is, you know, this is… Go back to algebra.
+Alright, cool.
+And just one thing that… And we always stay in mind, EIJ under the before you reach the yield point, in the elastic part.
+It's, you know, you're… because you're having in the elastic retainer following elastic response.
+So it's 1 over 2 mu shear modulus.
+Correlated with the irritatory stress component.
+the CIJ and SIJ correlation in the elastic came, and once you reach the eel point, the strain, propagate or step forward according to The fundamental equation of plasticity, geometrically, you would imagine the string propagate forward towards this.
+In a discretized sense.
+And I know this is kind of abstract, I… agree, but this is something that, if you have this mental image in mind, and then when you write down algebra, it would be very helpful, because in your mind, you can kind of imagine once… what happens once you reach the yield point, in… in the… In abstract space, mathematically, what is happening, and there's a mathematical correlation with this image.
+One comment… The applied stress, B-S-I-J.
+It only contributes to the elastic string.
+So they are actually in this space, it's parallel.
+D-S-I-J, and D-E-I-J.
+Elastic.
+And according to this equation, SIJ and DEIJ plastic is parallel, right?
+They're in the same direction, because, We start by specifying the possibility.
+strength rate has had repeated probably a hundred times, right?
+So this is S_ij, the direction of S_ij, then according to this equation, D… epsilon isoplastic propagation of the plastic deformation problem.
+So these are… parallel.
+Okay.
+Nice.
+That's one final thing.
+We'll have a more detailed geometric.
+interpretation.
+So, when you apply any stress following this debitoric stress path, before you reach the yield point, or reach the yield surface.
+before SIJ, reaches… The yield surface?
+surface.
+you are in the elastic regime, in which EIJ, the derivatory strain, is parallel to SIJ, right, because it's pure elastic deformation.
+And correspondingly, DEIJ is also parallel with the SIGN, the incremental.
+But after… After you reach the yield condition.
+EIJ is no longer parallel with SIJ, right?
+Because there will be plastic strain That is being generated, right?
+So it's no longer… Following.
+And similarly, D, I, J, and D as IJ.
+are no longer parallel with each other.
+But instead.
+What's actually happening is, for the fundamental equation of plasticity, DEIJ, you know, it equals… DE at the elastic, the elastic portion of the dilatory strain.
+plus, you can write epsilon or the E, because, Again, the hydrostatic stress does not contribute to classification formation, right?
+So on.
+You can also choose right at E, right?
+EIG plastic.
+If you follow this equation.
+Both elastic and plastic, strain contribute to the overall incremental elevatoric strain, then… D, ilan, plastic.
+Sorry, the elastic strain.
+It's parallel, too.
+DS and FGS.
+I just erase it, but, you know, according to the schematic that I just sketched.
+And the… plastic.
+Strain is proportional 2… The with her stress, not the stress increment anymore, so SIJ.
+Again, this… this video serves as a guidance or to help you to read the lecture note yourself.
+If I made any mistake or contradict with the lecture note, please stick with the lecture note.
+It's probably I made a mistake or error.
+Oh, during… during the video.
+And, yeah, feel free to ask me questions about this.
+My office hours, problem session, or lectures.
+And I hope this video can help you understand the handout, the lecture note, much better, and I have a More physical, intuitive understanding of plasticity, yield surface.
+And, and beyond.
+Cool, thank you.
