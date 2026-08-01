@@ -1,57 +1,52 @@
 """
 Merge a series of videos in order into a single output video.
 Usage: python merge_video.py -o output.mp4 video1.mp4 video2.mp4 video3.mp4
+
+Uses the concat filter (decode → concat → encode) so audio and video are
+one continuous stream with no timestamp discontinuities at boundaries.
 """
 from __future__ import annotations
 
 import argparse
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
+
+# Target audio sample rate so all segments match for concat
+AUDIO_SAMPLE_RATE = 44100
 
 
 def merge_videos(input_paths: list[str], output_path: str) -> None:
-    """Merge videos in order using ffmpeg concat demuxer."""
+    """Merge videos in order using ffmpeg concat filter (decode → concat → encode)."""
     for p in input_paths:
         if not Path(p).exists():
             raise FileNotFoundError(f"Input file not found: {p}")
 
-    # Concat list file: each line is "file 'path'"
-    # Escape single quotes in path for ffmpeg
-    def escape(path: str) -> str:
-        return path.replace("'", "'\\''")
+    n = len(input_paths)
+    # Build: -i v0 -i v1 ... and filter [0:v][0:a][1:v][1:a]... concat=n=N:v=1:a=1[v][a]
+    # Normalize audio to same sample rate so concat doesn't glitch at boundaries
+    parts = []
+    for i in range(n):
+        # aresample to fixed rate; async=1 helps keep A/V in sync across boundaries
+        parts.append(f"[{i}:a]aresample={AUDIO_SAMPLE_RATE}:async=1[a{i}]")
+    concat_inputs = "".join(f"[{i}:v][a{i}]" for i in range(n))
+    filter_complex = ";".join(parts) + ";" + concat_inputs + f"concat=n={n}:v=1:a=1[v][a]"
 
-    lines = [f"file '{escape(str(Path(p).resolve()))}'" for p in input_paths]
-    list_content = "\n".join(lines) + "\n"
-
-    with tempfile.NamedTemporaryFile(
-        mode="w",
-        suffix=".txt",
-        delete=False,
-    ) as f:
-        f.write(list_content)
-        list_path = f.name
-
-    try:
-        # Re-encode so all segments share same format/timebase and boundaries don't glitch audio.
-        cmd = [
-            "ffmpeg",
-            "-y",
-            "-f", "concat",
-            "-safe", "0",
-            "-i", list_path,
-            "-c:v", "libx264",
-            "-c:a", "aac",
-            "-movflags", "+faststart",
-            output_path,
-        ]
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0:
-            print(result.stderr, file=sys.stderr)
-            raise RuntimeError(f"ffmpeg failed with code {result.returncode}")
-    finally:
-        Path(list_path).unlink(missing_ok=True)
+    cmd = [
+        "ffmpeg", "-y",
+        *sum([["-i", str(Path(p).resolve())] for p in input_paths], []),
+        "-filter_complex", filter_complex,
+        "-map", "[v]", "-map", "[a]",
+        "-c:v", "libx264",
+        "-c:a", "aac",
+        "-ar", str(AUDIO_SAMPLE_RATE),
+        "-movflags", "+faststart",
+        output_path,
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(result.stderr, file=sys.stderr)
+        raise RuntimeError(f"ffmpeg failed with code {result.returncode}")
 
 
 def main() -> None:
